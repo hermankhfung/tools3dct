@@ -3,7 +3,7 @@
 
 ''' Transform volume according to 3DCT output and transformation matrices in XML format
 
-Run 'python3 transform_fluo.py --help' for command line usage information.
+Run 'python3 transform_3d.py --help' for command line usage information.
 
 Copyright (C) 2021  EMBL/Herman Fung, EMBL/Julia Mahamid
 

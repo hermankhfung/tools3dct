@@ -9,12 +9,6 @@
 
 # Development notes and test output
 devel/
-tests/predictions.csv
-tests/*_proj.tif
-tests/Project_S5_ch0[2-9]_resliced.tif
-tests/*_masked.tif
-tests/*_mask.tif
-analysis/
 
 # MacOS
 **/.DS_Store
