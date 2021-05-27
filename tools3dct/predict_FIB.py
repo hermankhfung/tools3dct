@@ -274,7 +274,7 @@ class Ui_MainWindow(object):
                 self.pixmapitem_sem.setPixmap(QtGui.QPixmap(self.semFile))
                 self.graphicsView_SEM.setSceneRect(self.scene_sem.sceneRect())
                 self.graphicsView_SEM.fitInView(self.graphicsView_SEM.sceneRect(),QtCore.Qt.KeepAspectRatio)
-            except (FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
+            except (PermissionError,FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
                 pass
         
     def load_SEM_param(self):
@@ -293,7 +293,7 @@ class Ui_MainWindow(object):
                     ellipseitem.setPos(pt[0],pt[1])
                     ellipseitem.setFlag(QtWidgets.QGraphicsItem.ItemIgnoresTransformations)
                     self.scene_sem.ellipseitemlist.append(ellipseitem)
-        except (FileNotFoundError,IsADirectoryError,UnicodeDecodeError):
+        except (PermissionError,FileNotFoundError,IsADirectoryError,UnicodeDecodeError):
             pass
         
     def load_FIB_image(self):
@@ -309,7 +309,7 @@ class Ui_MainWindow(object):
                 self.pixmapitem_fib.setPixmap(QtGui.QPixmap(self.fibFile))
                 self.graphicsView_FIB.setSceneRect(self.scene_fib.sceneRect())
                 self.graphicsView_FIB.fitInView(self.graphicsView_FIB.sceneRect(),QtCore.Qt.KeepAspectRatio)
-            except (FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
+            except (PermissionError,FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
                 pass
 
     def update_SEM_pixel_size(self):

@@ -2,9 +2,9 @@ import setuptools
 
 setuptools.setup(
     name='tools3dct',
-    version='0.0.10',
+    version='0.0.11',
     author='Herman Fung',
-    url='https://git.embl.de/fung/tools3dct',
+    url='https://github.com/hermankhfung/tools3dct',
     packages=setuptools.find_packages(),
     scripts=[],
     classifiers=[
@@ -13,7 +13,7 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        'tifffile>=2020.2.16',
+        'tifffile>=2021.4.8',
         'scikit-image>=0.14.1',
         'numpy>=1.15.4',
         'scipy>=1.1.0',

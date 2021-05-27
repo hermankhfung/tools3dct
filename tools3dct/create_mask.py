@@ -344,7 +344,7 @@ class Ui_MainWindow(object):
                 self.pixmapitem_sem.setPixmap(QtGui.QPixmap(self.semFile))
                 self.graphicsView_SEM.setSceneRect(self.scene_sem.sceneRect())
                 self.graphicsView_SEM.fitInView(self.graphicsView_SEM.sceneRect(),QtCore.Qt.KeepAspectRatio)
-            except (FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
+            except (PermissionError,FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
                 pass
         
     def load_FIB_image(self):
@@ -354,7 +354,7 @@ class Ui_MainWindow(object):
                 self.pixmapitem_fib.setPixmap(QtGui.QPixmap(self.fibFile))
                 self.graphicsView_FIB.setSceneRect(self.scene_fib.sceneRect())
                 self.graphicsView_FIB.fitInView(self.graphicsView_FIB.sceneRect(),QtCore.Qt.KeepAspectRatio)
-            except (FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
+            except (PermissionError,FileNotFoundError,IsADirectoryError,ValueError,tifffile.tifffile.TiffFileError):
                 pass
 
     def choose_SEM_param(self):
@@ -377,7 +377,7 @@ class Ui_MainWindow(object):
             self.semParam = None
             self.lineEdit_SEMparam.setText(self.semparamFile)
             self.lineEdit_SEMparam.setStyleSheet("QLineEdit{background-color: rgba(255,0,0,80);}")
-        except (FileNotFoundError,IsADirectoryError):
+        except (PermissionError,FileNotFoundError,IsADirectoryError):
             self.semParam = None
             self.lineEdit_SEMparam.setText('')
             self.lineEdit_SEMparam.setStyleSheet("QLineEdit{background-color: white;}")
@@ -394,7 +394,7 @@ class Ui_MainWindow(object):
             self.fibParam = None
             self.lineEdit_FIBparam.setText(self.fibparamFile)
             self.lineEdit_FIBparam.setStyleSheet("QLineEdit{background-color: rgba(255,0,0,80);}")
-        except (FileNotFoundError,IsADirectoryError):
+        except (PermissionError,FileNotFoundError,IsADirectoryError):
             self.fibParam = None
             self.lineEdit_FIBparam.setText('')
             self.lineEdit_FIBparam.setStyleSheet("QLineEdit{background-color: white;}")
@@ -413,7 +413,7 @@ class Ui_MainWindow(object):
             except (tifffile.tifffile.TiffFileError):  # non-TIFF image or 2D TIFF image
                 self.nX = None
                 self.lineEdit_fluoVolume.setStyleSheet("QLineEdit{background-color: rgba(255,0,0,80);}")
-            except (ValueError,FileNotFoundError,IsADirectoryError):
+            except (ValueError,PermissionError,FileNotFoundError,IsADirectoryError):
                 self.nX = None
                 self.lineEdit_fluoVolume.setText('')
                 self.lineEdit_fluoVolume.setStyleSheet("QLineEdit{background-color: white;}")
